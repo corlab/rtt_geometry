@@ -35,31 +35,31 @@
 #include <boost/lexical_cast.hpp>
 
 
-template class RTT_EXPORT RTT::internal::DataSourceTypeInfo< Eigen::VectorXd >;
-template class RTT_EXPORT RTT::internal::DataSource< Eigen::VectorXd >;
-template class RTT_EXPORT RTT::internal::AssignableDataSource< Eigen::VectorXd >;
-template class RTT_EXPORT RTT::internal::AssignCommand< Eigen::VectorXd >;
-template class RTT_EXPORT RTT::internal::ValueDataSource< Eigen::VectorXd >;
-template class RTT_EXPORT RTT::internal::ConstantDataSource< Eigen::VectorXd >;
-template class RTT_EXPORT RTT::internal::ReferenceDataSource< Eigen::VectorXd >;
-template class RTT_EXPORT RTT::OutputPort< Eigen::VectorXd >;
-template class RTT_EXPORT RTT::InputPort< Eigen::VectorXd >;
-template class RTT_EXPORT RTT::Property< Eigen::VectorXd >;
-template class RTT_EXPORT RTT::Attribute< Eigen::VectorXd >;
-template class RTT_EXPORT RTT::Constant< Eigen::VectorXd >;
+template class RTT_EXPORT RTT::internal::DataSourceTypeInfo< Eigen::VectorXf >;
+template class RTT_EXPORT RTT::internal::DataSource< Eigen::VectorXf >;
+template class RTT_EXPORT RTT::internal::AssignableDataSource< Eigen::VectorXf >;
+template class RTT_EXPORT RTT::internal::AssignCommand< Eigen::VectorXf >;
+template class RTT_EXPORT RTT::internal::ValueDataSource< Eigen::VectorXf >;
+template class RTT_EXPORT RTT::internal::ConstantDataSource< Eigen::VectorXf >;
+template class RTT_EXPORT RTT::internal::ReferenceDataSource< Eigen::VectorXf >;
+template class RTT_EXPORT RTT::OutputPort< Eigen::VectorXf >;
+template class RTT_EXPORT RTT::InputPort< Eigen::VectorXf >;
+template class RTT_EXPORT RTT::Property< Eigen::VectorXf >;
+template class RTT_EXPORT RTT::Attribute< Eigen::VectorXf >;
+template class RTT_EXPORT RTT::Constant< Eigen::VectorXf >;
 
-template class RTT_EXPORT RTT::internal::DataSourceTypeInfo< Eigen::MatrixXd >;
-template class RTT_EXPORT RTT::internal::DataSource< Eigen::MatrixXd >;
-template class RTT_EXPORT RTT::internal::AssignableDataSource< Eigen::MatrixXd >;
-template class RTT_EXPORT RTT::internal::AssignCommand< Eigen::MatrixXd >;
-template class RTT_EXPORT RTT::internal::ValueDataSource< Eigen::MatrixXd >;
-template class RTT_EXPORT RTT::internal::ConstantDataSource< Eigen::MatrixXd >;
-template class RTT_EXPORT RTT::internal::ReferenceDataSource< Eigen::MatrixXd >;
-template class RTT_EXPORT RTT::OutputPort< Eigen::MatrixXd >;
-template class RTT_EXPORT RTT::InputPort< Eigen::MatrixXd >;
-template class RTT_EXPORT RTT::Property< Eigen::MatrixXd >;
-template class RTT_EXPORT RTT::Attribute< Eigen::MatrixXd >;
-template class RTT_EXPORT RTT::Constant< Eigen::MatrixXd >;
+template class RTT_EXPORT RTT::internal::DataSourceTypeInfo< Eigen::MatrixXf >;
+template class RTT_EXPORT RTT::internal::DataSource< Eigen::MatrixXf >;
+template class RTT_EXPORT RTT::internal::AssignableDataSource< Eigen::MatrixXf >;
+template class RTT_EXPORT RTT::internal::AssignCommand< Eigen::MatrixXf >;
+template class RTT_EXPORT RTT::internal::ValueDataSource< Eigen::MatrixXf >;
+template class RTT_EXPORT RTT::internal::ConstantDataSource< Eigen::MatrixXf >;
+template class RTT_EXPORT RTT::internal::ReferenceDataSource< Eigen::MatrixXf >;
+template class RTT_EXPORT RTT::OutputPort< Eigen::MatrixXf >;
+template class RTT_EXPORT RTT::InputPort< Eigen::MatrixXf >;
+template class RTT_EXPORT RTT::Property< Eigen::MatrixXf >;
+template class RTT_EXPORT RTT::Attribute< Eigen::MatrixXf >;
+template class RTT_EXPORT RTT::Constant< Eigen::MatrixXf >;
 
 
 #include <Eigen/Core>
@@ -69,39 +69,39 @@ namespace Eigen{
     using namespace RTT::detail;
     using namespace RTT::types;
 
-    std::istream& operator>>(std::istream &is,MatrixXd& v){
+    std::istream& operator>>(std::istream &is,MatrixXf& v){
       return is;
     }
-    std::istream& operator>>(std::istream &is,VectorXd& v){
+    std::istream& operator>>(std::istream &is,VectorXf& v){
       return is;
     }
 
-    double& get_item(VectorXd& v, int index)
+    float& get_item(VectorXf& v, int index)
     {
         if (index >= (int) (v.size()) || index < 0)
-            return RTT::internal::NA<double&>::na();
+            return RTT::internal::NA<float&>::na();
         return v[index];
     }
 
-    double get_item_copy(const VectorXd& v, int index)
+    float get_item_copy(const VectorXf& v, int index)
     {
         if (index >= (int) (v.size()) || index < 0)
-            return RTT::internal::NA<double>::na();
+            return RTT::internal::NA<float>::na();
         return v[index];
     }
 
 
-    int get_size(const VectorXd& v)
+    int get_size(const VectorXf& v)
     {
         return v.size();
     }
 
-    struct VectorTypeInfo : public types::TemplateTypeInfo<VectorXd,true>
+    struct VectorTypeInfo : public types::TemplateTypeInfo<VectorXf,true>
 #if (RTT_VERSION_MAJOR*100+RTT_VERSION_MINOR) >= 206
                           , public MemberFactory
 #endif
     {
-        VectorTypeInfo():TemplateTypeInfo<VectorXd, true >("eigen_vector")
+        VectorTypeInfo():TemplateTypeInfo<VectorXf, true >("eigen_vector")
         {
         };
         
@@ -111,7 +111,7 @@ namespace Eigen{
             boost::shared_ptr< VectorTypeInfo > mthis = boost::dynamic_pointer_cast<VectorTypeInfo >( this->getSharedPtr() );
             assert(mthis);
             // Allow base to install first
-            TemplateTypeInfo<VectorXd,true>::installTypeInfoObject(ti);
+            TemplateTypeInfo<VectorXf,true>::installTypeInfoObject(ti);
             // Install the factories for primitive types
             ti->setMemberFactory( mthis );
             // Don't delete us, we're memory-managed.
@@ -122,7 +122,7 @@ namespace Eigen{
         bool resize(base::DataSourceBase::shared_ptr arg, int size) const
         {
             if (arg->isAssignable()) {
-	        RTT::internal::AssignableDataSource<VectorXd>::shared_ptr asarg = RTT::internal::AssignableDataSource<VectorXd>::narrow( arg.get() );
+	        RTT::internal::AssignableDataSource<VectorXf>::shared_ptr asarg = RTT::internal::AssignableDataSource<VectorXf>::narrow( arg.get() );
                 asarg->set().resize( size );
                 asarg->updated();
                 return true;
@@ -182,7 +182,7 @@ namespace Eigen{
         }
 
 
-        virtual bool decomposeTypeImpl(const VectorXd& vec, PropertyBag& targetbag) const
+        virtual bool decomposeTypeImpl(const VectorXf& vec, PropertyBag& targetbag) const
         {
             targetbag.setType("eigen_vector");
             int dimension = vec.rows();
@@ -195,13 +195,13 @@ namespace Eigen{
                 std::stringstream out;
                 out << i+1;
                 str = out.str();
-                targetbag.add( new Property<double>(str, str +"th element of vector",vec(i)) ); // Put variables in the bag
+                targetbag.add( new Property<float>(str, str +"th element of vector",vec(i)) ); // Put variables in the bag
             }
 
             return true;
         };
 
-      virtual bool composeTypeImpl(const PropertyBag& bag, VectorXd& result) const{
+      virtual bool composeTypeImpl(const PropertyBag& bag, VectorXf& result) const{
 
             if ( bag.getType() == "eigen_vector" ) {
                 int dimension = bag.size();
@@ -211,7 +211,7 @@ namespace Eigen{
                 for (int i = 0; i < dimension ; i++) {
                     std::stringstream out;
                     out << i+1;
-                    Property<double> elem = bag.getProperty(out.str());
+                    Property<float> elem = bag.getProperty(out.str());
                     if(elem.ready())
                         result(i) = elem.get();
                     else{
@@ -220,7 +220,7 @@ namespace Eigen{
                     }
                 }
             }else{
-                log(Error) << "Composing Property< VectorXd > :"
+                log(Error) << "Composing Property< VectorXf > :"
                            << " type mismatch, got type '"<< bag.getType()
                            << "', expected type "<<"eigen_vector."<<endlog();
                 return false;
@@ -229,12 +229,12 @@ namespace Eigen{
         };
     };
 
-    struct MatrixTypeInfo : public types::TemplateTypeInfo<MatrixXd,true>{
-        MatrixTypeInfo():TemplateTypeInfo<MatrixXd, true >("eigen_matrix"){
+    struct MatrixTypeInfo : public types::TemplateTypeInfo<MatrixXf,true>{
+        MatrixTypeInfo():TemplateTypeInfo<MatrixXf, true >("eigen_matrix"){
         };
 
 
-        bool decomposeTypeImpl(const MatrixXd& mat, PropertyBag& targetbag) const{
+        bool decomposeTypeImpl(const MatrixXf& mat, PropertyBag& targetbag) const{
             targetbag.setType("eigen_matrix");
             unsigned int dimension = mat.rows();
             if(!targetbag.empty())
@@ -243,13 +243,13 @@ namespace Eigen{
             for ( unsigned int i=0; i < dimension ; i++){
                 std::stringstream out;
                 out << i+1;
-                targetbag.add( new Property<VectorXd >(out.str(), out.str() +"th row of matrix",mat.row(i) )); // Put variables in the bag
+                targetbag.add( new Property<VectorXf >(out.str(), out.str() +"th row of matrix",mat.row(i) )); // Put variables in the bag
             }
 
             return true;
         };
 
-        bool composeTypeImpl(const PropertyBag& bag, MatrixXd& result) const{
+        bool composeTypeImpl(const PropertyBag& bag, MatrixXf& result) const{
             if ( bag.getType() == "eigen_matrix" ) {
                 unsigned int rows = bag.size();
                 unsigned int cols = 0;
@@ -262,7 +262,7 @@ namespace Eigen{
                         log(Error)<<"Could not read row "<<i+1<<endlog();
                         return false;
                     }
-                    Property<VectorXd > row_p(row_bag.getName(),row_bag.getDescription());
+                    Property<VectorXf > row_p(row_bag.getName(),row_bag.getDescription());
                     if(!(row_p.compose(row_bag))){
                         log(Error)<<"Could not compose row "<<i+1<<endlog();
                         return false;
@@ -283,7 +283,7 @@ namespace Eigen{
                     }
                 }
             }else {
-                log(Error) << "Composing Property< MatrixXd > :"
+                log(Error) << "Composing Property< MatrixXf > :"
                            << " type mismatch, got type '"<< bag.getType()
                            << "', expected type "<<"ublas_matrix."<<endlog();
                 return false;
@@ -293,9 +293,9 @@ namespace Eigen{
     };
 
     struct vector_index
-        : public std::binary_function<const VectorXd&, int, double>
+        : public std::binary_function<const VectorXf&, int, float>
     {
-        double operator()(const VectorXd& v, int index) const
+        float operator()(const VectorXf& v, int index) const
         {
             if ( index >= (int)(v.size()) || index < 0)
                 return 0.0;
@@ -304,51 +304,51 @@ namespace Eigen{
     };
 
     struct get_size
-        : public std::unary_function<const VectorXd&, int>
+        : public std::unary_function<const VectorXf&, int>
     {
-        int operator()(const VectorXd& cont ) const
+        int operator()(const VectorXf& cont ) const
         {
             return cont.rows();
         }
     };
 
     struct vector_index_value_constructor
-        : public std::binary_function<int,double,const VectorXd&>
+        : public std::binary_function<int,float,const VectorXf&>
     {
-        typedef const VectorXd& (Signature)( int, double );
-        mutable boost::shared_ptr< VectorXd > ptr;
+        typedef const VectorXf& (Signature)( int, float );
+        mutable boost::shared_ptr< VectorXf > ptr;
         vector_index_value_constructor() :
-            ptr( new VectorXd ){}
-        const VectorXd& operator()(int size,double value ) const
+            ptr( new VectorXf ){}
+        const VectorXf& operator()(int size,float value ) const
         {
             ptr->resize(size);
-            (*ptr)=Eigen::VectorXd::Constant(size,value);
+            (*ptr)=Eigen::VectorXf::Constant(size,value);
             return *(ptr);
         }
     };
 
     struct vector_index_array_constructor
-        : public std::unary_function<std::vector<double >,const VectorXd&>
+        : public std::unary_function<std::vector<float >,const VectorXf&>
     {
-        typedef const VectorXd& (Signature)( std::vector<double > );
-        mutable boost::shared_ptr< VectorXd > ptr;
+        typedef const VectorXf& (Signature)( std::vector<float > );
+        mutable boost::shared_ptr< VectorXf > ptr;
         vector_index_array_constructor() :
-            ptr( new VectorXd ){}
-        const VectorXd& operator()(std::vector<double > values) const
+            ptr( new VectorXf ){}
+        const VectorXf& operator()(std::vector<float > values) const
         {
-            (*ptr)=VectorXd::Map(&values[0],values.size());
+            (*ptr)=VectorXf::Map(&values[0],values.size());
             return *(ptr);
         }
     };
 
     struct vector_index_constructor
-        : public std::unary_function<int,const VectorXd&>
+        : public std::unary_function<int,const VectorXf&>
     {
-        typedef const VectorXd& (Signature)( int );
-        mutable boost::shared_ptr< VectorXd > ptr;
+        typedef const VectorXf& (Signature)( int );
+        mutable boost::shared_ptr< VectorXf > ptr;
         vector_index_constructor() :
-            ptr( new VectorXd() ){}
-        const VectorXd& operator()(int size ) const
+            ptr( new VectorXf() ){}
+        const VectorXf& operator()(int size ) const
         {
             ptr->resize(size);
             return *(ptr);
@@ -356,9 +356,9 @@ namespace Eigen{
     };
 
     struct matrix_index
-        : public std::ternary_function<const MatrixXd&, int, int, double>
+        : public std::ternary_function<const MatrixXf&, int, int, float>
     {
-        double operator()(const MatrixXd& m, int i, int j) const{
+        float operator()(const MatrixXf& m, int i, int j) const{
             if ( i >= (int)(m.rows()) || i < 0 || j<0 || j>= (int)(m.cols()))
                 return 0.0;
             return m(i,j);
@@ -366,13 +366,13 @@ namespace Eigen{
     };
 
     struct matrix_i_j_constructor
-        : public std::binary_function<int,int,const MatrixXd&>
+        : public std::binary_function<int,int,const MatrixXf&>
     {
-        typedef const MatrixXd& (Signature)( int, int );
-        mutable boost::shared_ptr< MatrixXd > ptr;
+        typedef const MatrixXf& (Signature)( int, int );
+        mutable boost::shared_ptr< MatrixXf > ptr;
         matrix_i_j_constructor() :
-            ptr( new MatrixXd() ){}
-        const MatrixXd& operator()(int size1,int size2) const
+            ptr( new MatrixXf() ){}
+        const MatrixXf& operator()(int size1,int size2) const
         {
             ptr->resize(size1,size2);
             return *(ptr);

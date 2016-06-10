@@ -38,53 +38,53 @@ public:
 };
 }
 #ifdef CORELIB_DATASOURCE_HPP
-    extern template class RTT::internal::DataSourceTypeInfo< Eigen::VectorXd >;
-    extern template class RTT::internal::DataSource< Eigen::VectorXd >;
-    extern template class RTT::internal::AssignableDataSource< Eigen::VectorXd >;
-    extern template class RTT::internal::AssignCommand< Eigen::VectorXd >;
+    extern template class RTT::internal::DataSourceTypeInfo< Eigen::VectorXf >;
+    extern template class RTT::internal::DataSource< Eigen::VectorXf >;
+    extern template class RTT::internal::AssignableDataSource< Eigen::VectorXf >;
+    extern template class RTT::internal::AssignCommand< Eigen::VectorXf >;
 #endif
 #ifdef ORO_CORELIB_DATASOURCES_HPP
-    extern template class RTT::internal::ValueDataSource< Eigen::VectorXd >;
-    extern template class RTT::internal::ConstantDataSource< Eigen::VectorXd >;
-    extern template class RTT::internal::ReferenceDataSource< Eigen::VectorXd >;
+    extern template class RTT::internal::ValueDataSource< Eigen::VectorXf >;
+    extern template class RTT::internal::ConstantDataSource< Eigen::VectorXf >;
+    extern template class RTT::internal::ReferenceDataSource< Eigen::VectorXf >;
 #endif
 #ifdef ORO_OUTPUT_PORT_HPP
-    extern template class RTT::OutputPort< Eigen::VectorXd >;
+    extern template class RTT::OutputPort< Eigen::VectorXf >;
 #endif
 #ifdef ORO_INPUT_PORT_HPP
-    extern template class RTT::InputPort< Eigen::VectorXd >;
+    extern template class RTT::InputPort< Eigen::VectorXf >;
 #endif
 #ifdef ORO_PROPERTY_HPP
-    extern template class RTT::Property< Eigen::VectorXd >;
+    extern template class RTT::Property< Eigen::VectorXf >;
 #endif
 #ifdef ORO_CORELIB_ATTRIBUTE_HPP
-    extern template class RTT::Attribute< Eigen::VectorXd >;
-    extern template class RTT::Constant< Eigen::VectorXd >;
+    extern template class RTT::Attribute< Eigen::VectorXf >;
+    extern template class RTT::Constant< Eigen::VectorXf >;
 #endif
 
 #ifdef CORELIB_DATASOURCE_HPP
-    extern template class RTT::internal::DataSourceTypeInfo< Eigen::MatrixXd >;
-    extern template class RTT::internal::DataSource< Eigen::MatrixXd >;
-    extern template class RTT::internal::AssignableDataSource< Eigen::MatrixXd >;
-    extern template class RTT::internal::AssignCommand< Eigen::MatrixXd >;
+    extern template class RTT::internal::DataSourceTypeInfo< Eigen::MatrixXf >;
+    extern template class RTT::internal::DataSource< Eigen::MatrixXf >;
+    extern template class RTT::internal::AssignableDataSource< Eigen::MatrixXf >;
+    extern template class RTT::internal::AssignCommand< Eigen::MatrixXf >;
 #endif
 #ifdef ORO_CORELIB_DATASOURCES_HPP
-    extern template class RTT::internal::ValueDataSource< Eigen::MatrixXd >;
-    extern template class RTT::internal::ConstantDataSource< Eigen::MatrixXd >;
-    extern template class RTT::internal::ReferenceDataSource< Eigen::MatrixXd >;
+    extern template class RTT::internal::ValueDataSource< Eigen::MatrixXf >;
+    extern template class RTT::internal::ConstantDataSource< Eigen::MatrixXf >;
+    extern template class RTT::internal::ReferenceDataSource< Eigen::MatrixXf >;
 #endif
 #ifdef ORO_OUTPUT_PORT_HPP
-    extern template class RTT::OutputPort< Eigen::MatrixXd >;
+    extern template class RTT::OutputPort< Eigen::MatrixXf >;
 #endif
 #ifdef ORO_INPUT_PORT_HPP
-    extern template class RTT::InputPort< Eigen::MatrixXd >;
+    extern template class RTT::InputPort< Eigen::MatrixXf >;
 #endif
 #ifdef ORO_PROPERTY_HPP
-    extern template class RTT::Property< Eigen::MatrixXd >;
+    extern template class RTT::Property< Eigen::MatrixXf >;
 #endif
 #ifdef ORO_CORELIB_ATTRIBUTE_HPP
-    extern template class RTT::Attribute< Eigen::MatrixXd >;
-    extern template class RTT::Constant< Eigen::MatrixXd >;
+    extern template class RTT::Attribute< Eigen::MatrixXf >;
+    extern template class RTT::Constant< Eigen::MatrixXf >;
 #endif
 
 #endif // ifndef EIGEN_TYPEKIT_HPP
